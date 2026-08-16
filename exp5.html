@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SimpleShop</title>
+
+    <style>
+
+        /* Basic */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f1e8;
+            color: #333;
+        }
+
+
+        /* Navigation - Flexbox */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 30px;
+
+            background-color: #386641;
+            color: white;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            color: #d8f3dc;
+        }
+
+
+        /* Banner */
+
+        .banner {
+            text-align: center;
+            padding: 60px 20px;
+
+            background-color: #a7c957;
+            color: #1b4332;
+
+            animation: fade 1.5s;
+        }
+
+        .banner h1 {
+            font-size: 35px;
+        }
+
+        .banner button {
+            padding: 10px 20px;
+
+            border: none;
+            border-radius: 5px;
+
+            background-color: #386641;
+            color: white;
+
+            cursor: pointer;
+
+            transition: transform 0.3s;
+        }
+
+        .banner button:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* Animation */
+
+        @keyframes fade {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* Products - Grid */
+
+        .products {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .products h2 {
+            color: #386641;
+        }
+
+        .product-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        /* Product Cards */
+
+        .card {
+            background-color: white;
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 2px 6px #ccc;
+
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #386641;
+        }
+
+        .price {
+            color: #6a994e;
+            font-weight: bold;
+        }
+
+        .card button {
+            padding: 8px 15px;
+
+            border: none;
+            border-radius: 4px;
+
+            background-color: #6a994e;
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* Footer */
+
+        footer {
+            margin-top: 30px;
+
+            padding: 15px;
+
+            text-align: center;
+
+            background-color: #386641;
+            color: white;
+        }
+
+
+        /* Tablet */
+
+        @media (max-width: 800px) {
+
+            .product-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 500px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .links {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            SimpleShop
+        </div>
+
+        <div class="links">
+
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Banner -->
+
+    <section class="banner">
+
+        <h1>
+            Welcome to SimpleShop
+        </h1>
+
+        <p>
+            Simple products. Great prices.
+        </p>
+
+        <button onclick="shop()">
+            Shop Now
+        </button>
+
+    </section>
+
+
+    <!-- Products -->
+
+    <section class="products">
+
+        <h2>
+            Our Products
+        </h2>
+
+        <div class="product-list">
+
+
+            <div class="card">
+
+                <h3>
+                    Headphones
+                </h3>
+
+                <p class="price">
+                    ₹999
+                </p>
+
+                <button onclick="cart('Headphones')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Smart Watch
+                </h3>
+
+                <p class="price">
+                    ₹1,499
+                </p>
+
+                <button onclick="cart('Smart Watch')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Backpack
+                </h3>
+
+                <p class="price">
+                    ₹799
+                </p>
+
+                <button onclick="cart('Backpack')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 SimpleShop
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        function shop() {
+            alert("Welcome to SimpleShop!");
+        }
+
+        function cart(product) {
+            alert(product + " added to cart!");
+        }
+
+    </script>
+
+</body>
+
+</html>

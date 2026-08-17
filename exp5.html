@@ -1,350 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SimpleShop</title>
+    <title>Student Admission Form</title>
 
     <style>
-
-        /* Basic */
-
         body {
+            font-family: Arial;
+            background-color: #f5efe6;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f1e8;
-            color: #333;
+            padding: 30px;
         }
 
-
-        /* Navigation - Flexbox */
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 15px 30px;
-
-            background-color: #386641;
-            color: white;
+        .form-box {
+            background-color: #fffaf3;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px #d2c0aa;
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .links a:hover {
-            color: #d8f3dc;
-        }
-
-
-        /* Banner */
-
-        .banner {
+        h1 {
             text-align: center;
-            padding: 60px 20px;
-
-            background-color: #a7c957;
-            color: #1b4332;
-
-            animation: fade 1.5s;
+            color: #4b2e1e;
         }
 
-        .banner h1 {
-            font-size: 35px;
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
-        .banner button {
-            padding: 10px 20px;
+        label {
+            font-weight: bold;
+            color: #4b2e1e;
+        }
 
+        input, select, textarea {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border: 1px solid #c9b39a;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #fdf8f1;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #8b5e3c;
+        }
+
+        .full {
+            grid-column: 1 / 3;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        button {
+            background-color: #4b2e1e;
+            color: white;
+            padding: 12px;
             border: none;
             border-radius: 5px;
-
-            background-color: #386641;
-            color: white;
-
-            cursor: pointer;
-
-            transition: transform 0.3s;
-        }
-
-        .banner button:hover {
-            transform: scale(1.1);
-        }
-
-
-        /* Animation */
-
-        @keyframes fade {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-
-        /* Products - Grid */
-
-        .products {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .products h2 {
-            color: #386641;
-        }
-
-        .product-list {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
-
-        /* Product Cards */
-
-        .card {
-            background-color: white;
-
-            padding: 20px;
-
-            border-radius: 8px;
-
-            box-shadow: 0 2px 6px #ccc;
-
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: #386641;
-        }
-
-        .price {
-            color: #6a994e;
-            font-weight: bold;
-        }
-
-        .card button {
-            padding: 8px 15px;
-
-            border: none;
-            border-radius: 4px;
-
-            background-color: #6a994e;
-            color: white;
-
             cursor: pointer;
         }
 
-
-        /* Footer */
-
-        footer {
-            margin-top: 30px;
-
-            padding: 15px;
-
-            text-align: center;
-
-            background-color: #386641;
-            color: white;
+        button:hover {
+            background-color: #6b4226;
         }
 
-
-        /* Tablet */
-
-        @media (max-width: 800px) {
-
-            .product-list {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-
-        /* Mobile */
-
-        @media (max-width: 500px) {
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .links {
-                flex-direction: column;
-                text-align: center;
-                gap: 8px;
-            }
-
-            .product-list {
+        @media (max-width: 600px) {
+            form {
                 grid-template-columns: 1fr;
             }
 
+            .full {
+                grid-column: 1;
+            }
         }
-
     </style>
 </head>
 
-
 <body>
 
+    <div class="form-box">
 
-    <!-- Navigation -->
+        <h1>Student Admission Form</h1>
 
-    <nav>
+        <form>
 
-        <div class="logo">
-            SimpleShop
-        </div>
-
-        <div class="links">
-
-            <a href="#">Home</a>
-            <a href="#">Products</a>
-            <a href="#">Contact</a>
-
-        </div>
-
-    </nav>
-
-
-    <!-- Banner -->
-
-    <section class="banner">
-
-        <h1>
-            Welcome to SimpleShop
-        </h1>
-
-        <p>
-            Simple products. Great prices.
-        </p>
-
-        <button onclick="shop()">
-            Shop Now
-        </button>
-
-    </section>
-
-
-    <!-- Products -->
-
-    <section class="products">
-
-        <h2>
-            Our Products
-        </h2>
-
-        <div class="product-list">
-
-
-            <div class="card">
-
-                <h3>
-                    Headphones
-                </h3>
-
-                <p class="price">
-                    ₹999
-                </p>
-
-                <button onclick="cart('Headphones')">
-                    Add to Cart
-                </button>
-
+            <div>
+                <label>Student Name</label>
+                <input type="text" placeholder="Enter name">
             </div>
 
-
-            <div class="card">
-
-                <h3>
-                    Smart Watch
-                </h3>
-
-                <p class="price">
-                    ₹1,499
-                </p>
-
-                <button onclick="cart('Smart Watch')">
-                    Add to Cart
-                </button>
-
+            <div>
+                <label>Age</label>
+                <input type="number" placeholder="Enter age">
             </div>
 
-
-            <div class="card">
-
-                <h3>
-                    Backpack
-                </h3>
-
-                <p class="price">
-                    ₹799
-                </p>
-
-                <button onclick="cart('Backpack')">
-                    Add to Cart
-                </button>
-
+            <div>
+                <label>Email</label>
+                <input type="email" placeholder="Enter email">
             </div>
 
-        </div>
+            <div>
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter phone number">
+            </div>
 
-    </section>
+            <div>
+                <label>Gender</label>
+                <select>
+                    <option>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
 
+            <div>
+                <label>Course</label>
+                <select>
+                    <option>Select Course</option>
+                    <option>CSE</option>
+                    <option>AI & DS</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                </select>
+            </div>
 
-    <!-- Footer -->
+            <div class="full">
+                <label>Address</label>
+                <textarea placeholder="Enter your address"></textarea>
+            </div>
 
-    <footer>
+            <div class="full">
+                <button type="submit">Submit Application</button>
+            </div>
 
-        <p>
-            © 2026 SimpleShop
-        </p>
+        </form>
 
-    </footer>
-
-
-    <!-- JavaScript -->
-
-    <script>
-
-        function shop() {
-            alert("Welcome to SimpleShop!");
-        }
-
-        function cart(product) {
-            alert(product + " added to cart!");
-        }
-
-    </script>
+    </div>
 
 </body>
-
-</html>
+</html>\
